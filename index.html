@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy 28th Yuki</title>
+  <title>Happy 28th birthday</title>
   <meta
     name="description"
-    content="A romantic Chengdu birthday surprise with arcade-love loading, animated tickets, panda moments, and a hidden soundtrack."
+    content="A birthday surprise page with arcade loading, a realistic boarding pass reveal, panda animation, and animated Chengdu scenes."
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
       </div>
       <div class="loader__screen">
         <p class="eyebrow">Loading your birthday surprise</p>
-        <h1>Happy 28th Yuki</h1>
+        <h1>Happy 28th birthday</h1>
         <div class="loader__hud">
           <span class="loader__label">Love Meter</span>
           <span class="loader__score"><span id="ageCounter">0</span>/28</span>
@@ -54,7 +54,7 @@
   </div>
 
   <main class="page">
-    <section class="hero reveal">
+    <section class="hero reveal reveal--visible">
       <div class="hero__backdrop"></div>
       <div class="hero__image-wrap" aria-hidden="true">
         <img
@@ -64,160 +64,175 @@
         >
       </div>
       <div class="hero__content">
-        <p class="eyebrow">Birthday mission unlocked</p>
         <p class="hero__name">Yuki Cheo Yong Kee</p>
-        <h1>Happy 28th Yuki</h1>
-        <p class="hero__lede">
-          One romantic surprise, one Chengdu trip, and one very lucky panda waiting to welcome you.
+        <h1>Happy 28th birthday</h1>
+        <p class="hero__message" id="introMessage">
+          我从没忘记爱慕你的初衷 不管28 还是58 我都会守卫着你直到掉光我的头发
         </p>
         <div class="hero__actions">
-          <a class="button" href="#gift">Reveal your gift</a>
+          <button class="button" id="revealButton" type="button">Reveal your gift</button>
         </div>
-      </div>
-      <div class="hero__orbit" aria-hidden="true">
-        <span class="heart heart--one"></span>
-        <span class="heart heart--two"></span>
-        <span class="heart heart--three"></span>
       </div>
     </section>
 
-    <section class="section gift reveal" id="gift">
-      <div class="section__copy">
-        <p class="eyebrow">Gift reveal</p>
-        <h2>We are flying to Chengdu.</h2>
-        <p>
-          Real flight details, Singapore Airlines, and a whole city of panda energy, lantern streets,
-          and food dates waiting for us.
-        </p>
-      </div>
-      <div class="ticket-stack">
-        <article class="ticket ticket--board">
-          <div class="ticket__header">
+    <section class="gift-sequence" id="giftSequence" aria-live="polite">
+      <section class="section boarding hidden-step" id="ticketStage">
+        <div class="boarding-pass" id="boardingPass">
+          <div class="boarding-pass__main">
+            <div class="boarding-pass__top">
+              <div class="boarding-pass__brand">
+                <span class="boarding-pass__plane">✈</span>
+                <div>
+                  <p>Singapore Airlines</p>
+                  <strong>BOARDING PASS</strong>
+                </div>
+              </div>
+              <span class="boarding-pass__type">Departure Only</span>
+            </div>
+
+            <div class="boarding-pass__body">
+              <div class="boarding-pass__barcode" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="boarding-pass__info">
+                <div class="boarding-pass__row boarding-pass__row--header">
+                  <div>
+                    <label>Passenger</label>
+                    <strong>YUKI CHEO YONG KEE</strong>
+                  </div>
+                  <div>
+                    <label>Carrier</label>
+                    <strong>SQ</strong>
+                  </div>
+                </div>
+
+                <div class="boarding-pass__route">
+                  <div class="boarding-pass__leg">
+                    <div class="boarding-pass__leg-top">
+                      <strong>PEN</strong>
+                      <span>SQ141</span>
+                    </div>
+                    <p>Penang International Airport</p>
+                    <div class="boarding-pass__leg-bottom">
+                      <span>Fri 15/01/2027</span>
+                      <span>21:20 - 22:55</span>
+                    </div>
+                  </div>
+
+                  <div class="boarding-pass__connector">
+                    <span></span>
+                    <p>Singapore Changi Airport</p>
+                    <span></span>
+                  </div>
+
+                  <div class="boarding-pass__leg">
+                    <div class="boarding-pass__leg-top">
+                      <strong>SIN</strong>
+                      <span>SQ846</span>
+                    </div>
+                    <p>Singapore Changi Airport T3</p>
+                    <div class="boarding-pass__leg-bottom">
+                      <span>Sat 16/01/2027</span>
+                      <span>02:10 - 06:55</span>
+                    </div>
+                  </div>
+
+                  <div class="boarding-pass__connector boarding-pass__connector--final">
+                    <span></span>
+                    <p>Chengdu Tianfu International Airport T1</p>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="boarding-pass__stub">
+            <p class="boarding-pass__stub-title">BOARDING PASS</p>
             <div>
-              <p class="ticket__airline">Singapore Airlines</p>
-              <h3>Outbound</h3>
+              <label>To</label>
+              <strong>Chengdu</strong>
             </div>
-            <span class="ticket__badge">Trip 01</span>
-          </div>
-          <div class="ticket__legs">
-            <div class="ticket__segment">
-              <div class="ticket__segment-top">
-                <strong>Penang</strong>
-                <span>SQ141</span>
-              </div>
-              <div class="ticket__segment-mid">
-                <span>Fri, Jan 15 2027</span>
-                <span>21:20 → 22:55</span>
-              </div>
-              <p>Penang International Airport → Singapore Changi Airport</p>
-            </div>
-            <div class="ticket__segment">
-              <div class="ticket__segment-top">
-                <strong>Singapore</strong>
-                <span>SQ846</span>
-              </div>
-              <div class="ticket__segment-mid">
-                <span>Sat, Jan 16 2027</span>
-                <span>02:10 → 06:55</span>
-              </div>
-              <p>Singapore Changi Airport T3 → Chengdu Tianfu International Airport T1</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="ticket ticket--board">
-          <div class="ticket__header">
             <div>
-              <p class="ticket__airline">Singapore Airlines</p>
-              <h3>Return</h3>
+              <label>From</label>
+              <strong>Penang</strong>
             </div>
-            <span class="ticket__badge">Trip 02</span>
-          </div>
-          <div class="ticket__legs">
-            <div class="ticket__segment">
-              <div class="ticket__segment-top">
-                <strong>Chengdu</strong>
-                <span>SQ847</span>
-              </div>
-              <div class="ticket__segment-mid">
-                <span>Fri, Jan 22 2027</span>
-                <span>10:00 → 15:10</span>
-              </div>
-              <p>Chengdu Tianfu International Airport T1 → Singapore Changi Airport</p>
+            <div>
+              <label>Flights</label>
+              <strong>SQ141 / SQ846</strong>
             </div>
-            <div class="ticket__segment">
-              <div class="ticket__segment-top">
-                <strong>Singapore</strong>
-                <span>SQ142</span>
-              </div>
-              <div class="ticket__segment-mid">
-                <span>Fri, Jan 22 2027</span>
-                <span>18:55 → 20:30</span>
-              </div>
-              <p>Singapore Changi Airport T2 → Penang International Airport</p>
+            <div>
+              <label>Time</label>
+              <strong>21:20 → 06:55</strong>
             </div>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section panda reveal">
-      <div class="panda__art panda__art--eat" aria-hidden="true">
-        <div class="moon"></div>
-        <div class="panda__halo"></div>
-        <div class="panda__scene panda__scene--pop">
-          <div class="bamboo bamboo--left"></div>
-          <div class="bamboo bamboo--right"></div>
-          <div class="panda-face">
-            <span class="ear ear--left"></span>
-            <span class="ear ear--right"></span>
-            <span class="eye eye--left"></span>
-            <span class="eye eye--right"></span>
-            <span class="pupil pupil--left"></span>
-            <span class="pupil pupil--right"></span>
-            <span class="nose"></span>
-            <span class="smile"></span>
-          </div>
-          <div class="paw paw--left"></div>
-          <div class="paw paw--right"></div>
-          <div class="bamboo-stick"></div>
         </div>
-      </div>
-      <div class="section__copy">
-        <p class="eyebrow">Panda pop-up</p>
-        <h2>The cutest part of Chengdu is already eating bamboo for you.</h2>
-        <p>
-          Your birthday gift comes with one animated panda, one bamboo snack, and a whole trip filled
-          with places we are going to explore together.
-        </p>
-        <div class="destination-list">
-          <article>
-            <h3>Chengdu Research Base</h3>
-            <p>The first stop for giant panda energy.</p>
+      </section>
+
+      <section class="section surprise-world hidden-step" id="journeyStage">
+        <div class="panda-pop" id="pandaPop" aria-hidden="true">
+          <div class="panda-pop__shadow"></div>
+          <div class="panda-pop__scene">
+            <div class="panda-pop__bamboo panda-pop__bamboo--left"></div>
+            <div class="panda-pop__bamboo panda-pop__bamboo--right"></div>
+            <div class="panda-pop__body">
+              <span class="panda-pop__ear panda-pop__ear--left"></span>
+              <span class="panda-pop__ear panda-pop__ear--right"></span>
+              <span class="panda-pop__eye panda-pop__eye--left"></span>
+              <span class="panda-pop__eye panda-pop__eye--right"></span>
+              <span class="panda-pop__pupil panda-pop__pupil--left"></span>
+              <span class="panda-pop__pupil panda-pop__pupil--right"></span>
+              <span class="panda-pop__nose"></span>
+              <span class="panda-pop__smile"></span>
+            </div>
+            <div class="panda-pop__paw panda-pop__paw--left"></div>
+            <div class="panda-pop__paw panda-pop__paw--right"></div>
+            <div class="panda-pop__stick"></div>
+          </div>
+        </div>
+
+        <div class="scene-reel">
+          <article class="scene-card scene-card--one">
+            <img
+              src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=realistic%20morning%20at%20Chengdu%20Research%20Base%2C%20giant%20pandas%2C%20fresh%20green%20bamboo%2C%20soft%20sunlight%2C%20travel%20editorial%20photography&image_size=portrait_16_9"
+              alt=""
+            >
+            <div class="scene-card__copy">
+              <h2>Panda Base</h2>
+              <p>Morning bamboo and sleepy panda faces.</p>
+            </div>
           </article>
-          <article>
-            <h3>Jinli Old Street</h3>
-            <p>Lanterns, snacks, and slow romantic walks.</p>
+
+          <article class="scene-card scene-card--two">
+            <img
+              src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=romantic%20evening%20at%20Jinli%20Old%20Street%20Chengdu%2C%20warm%20lanterns%2C%20historic%20street%2C%20vibrant%20food%20stalls%2C%20realistic%20travel%20photography&image_size=portrait_16_9"
+              alt=""
+            >
+            <div class="scene-card__copy">
+              <h2>Jinli Old Street</h2>
+              <p>Lanterns, lights, and a soft walk together.</p>
+            </div>
           </article>
-          <article>
-            <h3>Kuanzhai Alley</h3>
-            <p>Historic lanes, tea breaks, and pretty corners.</p>
-          </article>
-          <article>
-            <h3>People's Park</h3>
-            <p>Tea house time and a soft Chengdu afternoon.</p>
+
+          <article class="scene-card scene-card--three">
+            <img
+              src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=beautiful%20tea%20house%20in%20People%27s%20Park%20Chengdu%2C%20green%20trees%2C%20traditional%20tea%20tables%2C%20relaxed%20travel%20mood%2C%20realistic%20photography&image_size=portrait_16_9"
+              alt=""
+            >
+            <div class="scene-card__copy">
+              <h2>People's Park</h2>
+              <p>Tea house time and a calm Chengdu afternoon.</p>
+            </div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section final reveal">
-      <p class="eyebrow">Final message</p>
-      <h2>Happy Birthday</h2>
-      <p class="final__message">
-        我从没忘记爱慕你的初衷 不管28 还是58 我都会守卫着你直到掉光我的头发
-      </p>
-      <p class="final__signature">Made with love, just for you.</p>
+      </section>
     </section>
   </main>
 
