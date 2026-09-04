@@ -67,14 +67,14 @@ const startGiftReveal = () => {
 
   window.setTimeout(() => {
     boardingPass.classList.add("is-fading");
-  }, 2400);
+  }, 9400);
 
   window.setTimeout(() => {
     ticketStage.classList.remove("is-visible");
     journeyStage.classList.add("is-visible", "is-playing");
     pandaPop.classList.add("is-entering");
     journeyStage.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, 3000);
+  }, 10000);
 };
 
 revealButton.addEventListener("click", startGiftReveal);
