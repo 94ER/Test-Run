@@ -3,40 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy 28th Birthday</title>
+  <title>Happy 28th Yuki</title>
   <meta
     name="description"
-    content="A romantic birthday surprise website revealing a Chengdu trip with animated moments, custom tickets, and panda magic."
+    content="A romantic Chengdu birthday surprise with arcade-love loading, animated tickets, panda moments, and a hidden soundtrack."
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&family=Playfair+Display:wght@600;700&display=swap"
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <iframe
+    class="soundtrack"
+    src="https://www.youtube-nocookie.com/embed/WVYNeUuCCrg?autoplay=1&loop=1&playlist=WVYNeUuCCrg&controls=0&mute=0"
+    title="Background soundtrack"
+    loading="eager"
+    allow="autoplay; encrypted-media"
+  ></iframe>
+
   <div class="loader" id="loader" aria-live="polite">
     <div class="loader__glow"></div>
-    <div class="loader__card">
-      <p class="eyebrow">A birthday surprise is loading</p>
-      <h1>Love, candles, and a little trip magic.</h1>
-      <div class="loader__count">
-        <span id="ageCounter">0</span>
-        <span class="loader__divider">/</span>
-        <span>28</span>
+    <div class="loader__cabinet">
+      <div class="loader__topbar">
+        <span>LOVE ARCADE</span>
+        <span>LEVEL 28</span>
       </div>
-      <div class="progress" aria-hidden="true">
-        <div class="progress__fill" id="progressFill"></div>
+      <div class="loader__screen">
+        <p class="eyebrow">Loading your birthday surprise</p>
+        <h1>Happy 28th Yuki</h1>
+        <div class="loader__hud">
+          <span class="loader__label">Love Meter</span>
+          <span class="loader__score"><span id="ageCounter">0</span>/28</span>
+        </div>
+        <div class="progress progress--arcade" aria-hidden="true">
+          <div class="progress__fill" id="progressFill"></div>
+        </div>
+        <div class="loader__hearts" aria-hidden="true">
+          <span class="pixel-heart"></span>
+          <span class="pixel-heart"></span>
+          <span class="pixel-heart"></span>
+          <span class="pixel-heart"></span>
+        </div>
+        <p class="loader__note" id="loaderNote">Booting the surprise...</p>
       </div>
-      <div class="candles" aria-hidden="true">
-        <span class="candle"><i></i></span>
-        <span class="candle"><i></i></span>
-        <span class="candle"><i></i></span>
-        <span class="candle"><i></i></span>
-      </div>
-      <p class="loader__note" id="loaderNote">Lighting the candles...</p>
     </div>
   </div>
 
@@ -51,16 +64,14 @@
         >
       </div>
       <div class="hero__content">
-        <p class="eyebrow">For your 28th birthday</p>
+        <p class="eyebrow">Birthday mission unlocked</p>
         <p class="hero__name">Yuki Cheo Yong Kee</p>
-        <h1>Happy Birthday, my love.</h1>
+        <h1>Happy 28th Yuki</h1>
         <p class="hero__lede">
-          I wanted your gift to feel like a story, so I turned it into a little world:
-          soft lights, birthday wishes, and one big surprise waiting at the end.
+          One romantic surprise, one Chengdu trip, and one very lucky panda waiting to welcome you.
         </p>
         <div class="hero__actions">
-          <a class="button" href="#surprise">Open your surprise</a>
-          <a class="button button--ghost" href="#our-song">Play our song</a>
+          <a class="button" href="#gift">Reveal your gift</a>
         </div>
       </div>
       <div class="hero__orbit" aria-hidden="true">
@@ -70,39 +81,91 @@
       </div>
     </section>
 
-    <section class="section surprise reveal" id="surprise">
+    <section class="section gift reveal" id="gift">
       <div class="section__copy">
-        <p class="eyebrow">The surprise</p>
-        <h2>We are going to Chengdu.</h2>
+        <p class="eyebrow">Gift reveal</p>
+        <h2>We are flying to Chengdu.</h2>
         <p>
-          A city of pandas, warm tea houses, glowing lantern streets, and unforgettable food.
-          This birthday gift is not just a trip. It is a memory we are about to live together.
+          Real flight details, Singapore Airlines, and a whole city of panda energy, lantern streets,
+          and food dates waiting for us.
         </p>
       </div>
-      <div class="surprise__highlights">
-        <article>
-          <span>01</span>
-          <h3>Pandas</h3>
-          <p>The cutest welcome committee in the world.</p>
+      <div class="ticket-stack">
+        <article class="ticket ticket--board">
+          <div class="ticket__header">
+            <div>
+              <p class="ticket__airline">Singapore Airlines</p>
+              <h3>Outbound</h3>
+            </div>
+            <span class="ticket__badge">Trip 01</span>
+          </div>
+          <div class="ticket__legs">
+            <div class="ticket__segment">
+              <div class="ticket__segment-top">
+                <strong>Penang</strong>
+                <span>SQ141</span>
+              </div>
+              <div class="ticket__segment-mid">
+                <span>Fri, Jan 15 2027</span>
+                <span>21:20 → 22:55</span>
+              </div>
+              <p>Penang International Airport → Singapore Changi Airport</p>
+            </div>
+            <div class="ticket__segment">
+              <div class="ticket__segment-top">
+                <strong>Singapore</strong>
+                <span>SQ846</span>
+              </div>
+              <div class="ticket__segment-mid">
+                <span>Sat, Jan 16 2027</span>
+                <span>02:10 → 06:55</span>
+              </div>
+              <p>Singapore Changi Airport T3 → Chengdu Tianfu International Airport T1</p>
+            </div>
+          </div>
         </article>
-        <article>
-          <span>02</span>
-          <h3>Hotpot</h3>
-          <p>Spicy, warm, and perfect for a cozy night together.</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h3>Jinli Nights</h3>
-          <p>Lanterns, old streets, and a slow romantic walk.</p>
+
+        <article class="ticket ticket--board">
+          <div class="ticket__header">
+            <div>
+              <p class="ticket__airline">Singapore Airlines</p>
+              <h3>Return</h3>
+            </div>
+            <span class="ticket__badge">Trip 02</span>
+          </div>
+          <div class="ticket__legs">
+            <div class="ticket__segment">
+              <div class="ticket__segment-top">
+                <strong>Chengdu</strong>
+                <span>SQ847</span>
+              </div>
+              <div class="ticket__segment-mid">
+                <span>Fri, Jan 22 2027</span>
+                <span>10:00 → 15:10</span>
+              </div>
+              <p>Chengdu Tianfu International Airport T1 → Singapore Changi Airport</p>
+            </div>
+            <div class="ticket__segment">
+              <div class="ticket__segment-top">
+                <strong>Singapore</strong>
+                <span>SQ142</span>
+              </div>
+              <div class="ticket__segment-mid">
+                <span>Fri, Jan 22 2027</span>
+                <span>18:55 → 20:30</span>
+              </div>
+              <p>Singapore Changi Airport T2 → Penang International Airport</p>
+            </div>
+          </div>
         </article>
       </div>
     </section>
 
     <section class="section panda reveal">
-      <div class="panda__art" aria-hidden="true">
+      <div class="panda__art panda__art--eat" aria-hidden="true">
         <div class="moon"></div>
         <div class="panda__halo"></div>
-        <div class="panda__scene">
+        <div class="panda__scene panda__scene--pop">
           <div class="bamboo bamboo--left"></div>
           <div class="bamboo bamboo--right"></div>
           <div class="panda-face">
@@ -117,130 +180,40 @@
           </div>
           <div class="paw paw--left"></div>
           <div class="paw paw--right"></div>
+          <div class="bamboo-stick"></div>
         </div>
       </div>
       <div class="section__copy">
-        <p class="eyebrow">Best thing in Chengdu</p>
-        <h2>The pandas had to be part of your gift.</h2>
+        <p class="eyebrow">Panda pop-up</p>
+        <h2>The cutest part of Chengdu is already eating bamboo for you.</h2>
         <p>
-          Chengdu is famous for its giant pandas, so I made sure your birthday page has one
-          waving hello before we meet the real ones.
+          Your birthday gift comes with one animated panda, one bamboo snack, and a whole trip filled
+          with places we are going to explore together.
         </p>
-        <ul class="panda__facts">
-          <li>Chengdu Research Base is one of the city's most iconic experiences.</li>
-          <li>Morning visits are best when pandas are playful and active.</li>
-          <li>This page keeps the panda gently floating like a dreamy preview.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section tickets reveal">
-      <div class="section__copy">
-        <p class="eyebrow">Custom trip tickets</p>
-        <h2>Your journey, styled just for you.</h2>
-        <p>
-          Inspired by the flight screenshots, I turned the itinerary into a cleaner birthday reveal.
-          Same feeling, more romance.
-        </p>
-      </div>
-      <div class="ticket-list">
-        <article class="ticket">
-          <div class="ticket__meta">
-            <p>Outbound</p>
-            <span>Jan 15-16, 2027</span>
-          </div>
-          <div class="ticket__route">
-            <div>
-              <strong>Penang</strong>
-              <span>21:20</span>
-            </div>
-            <p>via Singapore</p>
-            <div>
-              <strong>Chengdu</strong>
-              <span>06:55</span>
-            </div>
-          </div>
-          <div class="ticket__line"></div>
-          <p class="ticket__note">The beginning of your birthday adventure.</p>
-        </article>
-
-        <article class="ticket">
-          <div class="ticket__meta">
-            <p>Return</p>
-            <span>Jan 22, 2027</span>
-          </div>
-          <div class="ticket__route">
-            <div>
-              <strong>Chengdu</strong>
-              <span>10:00</span>
-            </div>
-            <p>via Singapore</p>
-            <div>
-              <strong>Penang</strong>
-              <span>20:30</span>
-            </div>
-          </div>
-          <div class="ticket__line"></div>
-          <p class="ticket__note">Coming home with new memories for both of us.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section moments reveal">
-      <div class="section__copy">
-        <p class="eyebrow">What we will do</p>
-        <h2>A few beautiful Chengdu moments I am dreaming about.</h2>
-      </div>
-      <div class="moments__grid">
-        <article>
-          <h3>Panda morning</h3>
-          <p>Watching giant pandas wake up while the city still feels soft and quiet.</p>
-        </article>
-        <article>
-          <h3>Hotpot date</h3>
-          <p>Sharing a bubbling pot and laughing at how brave we are with the spice.</p>
-        </article>
-        <article>
-          <h3>Lantern evening</h3>
-          <p>Walking through old streets with lights glowing around us.</p>
-        </article>
-        <article>
-          <h3>Tea house pause</h3>
-          <p>Sitting down, slowing time, and enjoying the city together.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section music reveal" id="our-song">
-      <div class="section__copy">
-        <p class="eyebrow">Our song</p>
-        <h2>别怕变老</h2>
-        <p>
-          I placed our song inside your birthday page, so this surprise can have its own soundtrack
-          while you read and smile.
-        </p>
-      </div>
-      <div class="music__card">
-        <div class="music__meta">
-          <p class="music__label">艾热 &amp; 王以太</p>
-          <h3>别怕变老</h3>
-          <p class="music__copy">Tap play and let this page feel a little more like us.</p>
-        </div>
-        <div class="music__frame">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/WVYNeUuCCrg?rel=0"
-            title="别怕变老 - 艾热 & 王以太"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+        <div class="destination-list">
+          <article>
+            <h3>Chengdu Research Base</h3>
+            <p>The first stop for giant panda energy.</p>
+          </article>
+          <article>
+            <h3>Jinli Old Street</h3>
+            <p>Lanterns, snacks, and slow romantic walks.</p>
+          </article>
+          <article>
+            <h3>Kuanzhai Alley</h3>
+            <p>Historic lanes, tea breaks, and pretty corners.</p>
+          </article>
+          <article>
+            <h3>People's Park</h3>
+            <p>Tea house time and a soft Chengdu afternoon.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section final reveal">
       <p class="eyebrow">Final message</p>
-      <h2>Happy 28th Birthday, Yuki.</h2>
+      <h2>Happy Birthday</h2>
       <p class="final__message">
         我从没忘记爱慕你的初衷 不管28 还是58 我都会守卫着你直到掉光我的头发
       </p>

@@ -3,16 +3,30 @@ const ageCounter = document.getElementById("ageCounter");
 const progressFill = document.getElementById("progressFill");
 const loaderNote = document.getElementById("loaderNote");
 const revealItems = document.querySelectorAll(".reveal");
+const soundtrack = document.querySelector(".soundtrack");
 
 const notes = [
-  { at: 7, text: "Lighting the candles..." },
-  { at: 14, text: "Wrapping the birthday surprise..." },
-  { at: 21, text: "Adding Chengdu magic..." },
-  { at: 28, text: "Ready, my love." }
+  { at: 7, text: "Powering up the love meter..." },
+  { at: 14, text: "Unlocking your birthday gift..." },
+  { at: 21, text: "Loading Chengdu coordinates..." },
+  { at: 28, text: "Mission ready, my love." }
 ];
 
 let currentAge = 0;
 let noteIndex = 0;
+let soundtrackRetried = false;
+
+const trySoundtrack = () => {
+  if (!soundtrack || soundtrackRetried) {
+    return;
+  }
+
+  soundtrackRetried = true;
+  const src = soundtrack.getAttribute("src");
+
+  // Retrying on first interaction gives autoplay a better chance on mobile browsers.
+  soundtrack.setAttribute("src", src);
+};
 
 const loaderInterval = window.setInterval(() => {
   currentAge += 1;
@@ -59,3 +73,6 @@ revealItems.forEach((item) => {
 
   revealObserver.observe(item);
 });
+
+window.addEventListener("pointerdown", trySoundtrack, { once: true });
+window.addEventListener("keydown", trySoundtrack, { once: true });
