@@ -22,11 +22,12 @@ let noteIndex = 0;
 let soundtrackStarted = false;
 let revealStarted = false;
 
-const trySoundtrack = () => {
+const startSoundtrackFromBeginning = () => {
   if (!soundtrack || soundtrackStarted) {
     return;
   }
 
+  soundtrack.currentTime = 0;
   const playAttempt = soundtrack.play();
 
   if (playAttempt && typeof playAttempt.then === "function") {
@@ -44,9 +45,6 @@ const trySoundtrack = () => {
 };
 
 document.body.style.overflowY = "hidden";
-window.addEventListener("load", () => {
-  window.setTimeout(trySoundtrack, 400);
-});
 
 const loaderInterval = window.setInterval(() => {
   currentAge += 1;
@@ -72,8 +70,8 @@ const startGiftReveal = () => {
     return;
   }
 
+  startSoundtrackFromBeginning();
   revealStarted = true;
-  trySoundtrack();
 
   giftSequence.classList.add("is-active");
   ticketStage.classList.add("is-visible");
@@ -92,5 +90,5 @@ const startGiftReveal = () => {
 };
 
 revealButton.addEventListener("click", startGiftReveal);
-window.addEventListener("pointerdown", trySoundtrack, { once: true });
-window.addEventListener("keydown", trySoundtrack, { once: true });
+window.addEventListener("pointerdown", startSoundtrackFromBeginning, { once: true });
+window.addEventListener("keydown", startSoundtrackFromBeginning, { once: true });
