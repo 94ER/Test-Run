@@ -9,6 +9,7 @@ const ticketStage = document.getElementById("ticketStage");
 const boardingPass = document.getElementById("boardingPass");
 const journeyStage = document.getElementById("journeyStage");
 const pandaPop = document.getElementById("pandaPop");
+const journeyVideo = document.getElementById("journeyVideo");
 
 const notes = [
   { at: 7, text: "Powering up the love meter..." },
@@ -85,6 +86,13 @@ const startGiftReveal = () => {
     ticketStage.classList.remove("is-visible");
     journeyStage.classList.add("is-visible", "is-playing");
     pandaPop.classList.add("is-entering");
+    if (journeyVideo) {
+      journeyVideo.currentTime = 0;
+      const videoAttempt = journeyVideo.play();
+      if (videoAttempt && typeof videoAttempt.catch === "function") {
+        videoAttempt.catch(() => {});
+      }
+    }
     journeyStage.scrollIntoView({ behavior: "smooth", block: "start" });
   }, 10000);
 };
