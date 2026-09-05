@@ -2,7 +2,7 @@ const loader = document.getElementById("loader");
 const ageCounter = document.getElementById("ageCounter");
 const progressFill = document.getElementById("progressFill");
 const loaderNote = document.getElementById("loaderNote");
-const soundtrack = document.querySelector(".soundtrack");
+const soundtrack = document.getElementById("soundtrack");
 const revealButton = document.getElementById("revealButton");
 const giftSequence = document.getElementById("giftSequence");
 const ticketStage = document.getElementById("ticketStage");
@@ -19,20 +19,34 @@ const notes = [
 
 let currentAge = 0;
 let noteIndex = 0;
-let soundtrackRetried = false;
+let soundtrackStarted = false;
 let revealStarted = false;
 
 const trySoundtrack = () => {
-  if (!soundtrack || soundtrackRetried) {
+  if (!soundtrack || soundtrackStarted) {
     return;
   }
 
-  soundtrackRetried = true;
-  const src = soundtrack.getAttribute("src");
-  soundtrack.setAttribute("src", src);
+  const playAttempt = soundtrack.play();
+
+  if (playAttempt && typeof playAttempt.then === "function") {
+    playAttempt
+      .then(() => {
+        soundtrackStarted = true;
+      })
+      .catch(() => {
+        soundtrackStarted = false;
+      });
+    return;
+  }
+
+  soundtrackStarted = true;
 };
 
 document.body.style.overflowY = "hidden";
+window.addEventListener("load", () => {
+  window.setTimeout(trySoundtrack, 400);
+});
 
 const loaderInterval = window.setInterval(() => {
   currentAge += 1;
